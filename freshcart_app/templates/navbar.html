@@ -11,7 +11,7 @@
                     aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.png'%}" class="logo"
+                <a class="navbar-brand" href="{%url 'home' %}"><img src="{% static 'images/logo.png'%}" class="logo"
                         alt=""></a>
             </div>
             <!-- End Header Navigation -->
@@ -28,8 +28,6 @@
                             <li><a href="{%url 'wish'%}">Wishlist</a></li>
                             <li><a href="#">Your Orders</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{%url 'gallery'%}">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="{%url 'contact'%}">Contact Us</a></li>
                 </ul>
             </div>

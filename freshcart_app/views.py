@@ -9,8 +9,7 @@ def checkout(request):
     return render(request,'checkout.html')
 def contact(request): 
     return render(request,'contact-us.html')
-def gallery(request): 
-    return render(request,'gallery.html')
+
 def account(request): 
     return render(request,'my-account.html')
 def wish(request): 
