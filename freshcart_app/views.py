@@ -13,10 +13,6 @@ def gallery(request):
     return render(request,'gallery.html')
 def account(request): 
     return render(request,'my-account.html')
-def shop_detail(request): 
-    return render(request,'shop-detail.html')
-def shop(request): 
-    return render(request,'shop.html')
 def wish(request): 
     return render(request,'wishlist.html')
 def cart(request): 

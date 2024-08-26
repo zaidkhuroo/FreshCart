@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <!-- Site CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Responsive CSS --> %}
+    <!-- Responsive CSS -->
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
@@ -29,15 +29,18 @@
 </head>
 
 <body>
+
     {% include 'navbar.html'%}
-    <div class="container">
 
 
-        {%block content%}
+    {%block content%}
 
-        {%endblock%}
+    {%endblock%}
 
-    </div>
+     <!-- Footer Section -->
+    {% include 'footer.html'%}
+
+
 
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
