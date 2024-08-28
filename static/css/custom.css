@@ -1,2 +1,20 @@
-
+#price{
+    font-weight: 600;
+    color: black;
+    font-size: 1.2rem;
+}
+#saver{
+    font-weight: 600;
+}
+#tax{
+   font-size: small;
+   font-family: 'Times New Roman';
+   padding-bottom: 20px;
+}
+.origprice{
+    font-size: 12px;
+}
+.noo-sh-title-top{
+    font-size: 3rem;
+}
 /** ADD YOUR AWESOME CODES HERE **/

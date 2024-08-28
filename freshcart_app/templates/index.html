@@ -2,17 +2,6 @@
 {%load static%}
 {%block content%}
 
-    <!-- Start Top Search -->
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Search -->
 
     <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
@@ -22,7 +11,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
+                            <h1 class="m-b-20"><strong>Welcome To <br> FreshCart</strong></h1>
                             <p class="m-b-40">See how your users experience your website in realtime or view <br> trends
                                 to
                                 see any changes in performance over time.</p>
@@ -144,7 +133,7 @@
                             <img src="{% static 'images/img-pro-01.jpg'%}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                    <li><a href="{%url 'product' %}" data-toggle="tooltip" data-placement="right" title="View"><i
                                                 class="fas fa-eye"></i></a></li>
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
                                                 class="fas fa-sync-alt"></i></a></li>
@@ -155,7 +144,7 @@
                             </div>
                         </div>
                         <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h4>Carrots</h4>
                             <h5> $7.79</h5>
                         </div>
                     </div>

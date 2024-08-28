@@ -16,3 +16,5 @@ def wish(request):
     return render(request,'wishlist.html')
 def cart(request): 
     return render(request,'cart.html')
+def product(request): 
+    return render(request,'product.html')
