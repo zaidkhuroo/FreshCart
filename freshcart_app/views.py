@@ -9,7 +9,6 @@ def checkout(request):
     return render(request,'checkout.html')
 def contact(request): 
     return render(request,'contact-us.html')
-
 def account(request): 
     return render(request,'my-account.html')
 def wish(request): 
@@ -18,3 +17,11 @@ def cart(request):
     return render(request,'cart.html')
 def product(request): 
     return render(request,'product.html')
+def vegetables(request): 
+    return render(request,'vegetables.html')
+def fruits(request): 
+    return render(request,'fruits.html')
+def dairy(request): 
+    return render(request,'dairy.html')
+def login(request): 
+    return render(request,'login.html')

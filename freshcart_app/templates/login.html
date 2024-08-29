@@ -1,0 +1,30 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/logins.css' %}">
+
+  
+<body>
+    
+
+    <div class="wrapper animated bounce">
+        <a href="{%url 'home' %}"><img src="{% static 'images/logo2.png'%}" class="logo"
+            alt=""></a>
+        <hr>
+        <form>
+          <label id="icon" for="username"><i class="fa fa-user"></i></label>
+          <input type="text" placeholder="Username" id="username">
+          <label id="icon" for="password"><i class="fa fa-key"></i></label>
+          <input type="password" placeholder="Password" id="password">
+          <input type="submit" value="Sign In">
+          <hr>
+          <div class="crtacc"><a href="#">Create Account</a></div>
+        </form>
+      </div>
+      
+</body>
+</html>

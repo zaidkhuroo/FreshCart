@@ -17,4 +17,34 @@
 .noo-sh-title-top{
     font-size: 3rem;
 }
-/** ADD YOUR AWESOME CODES HERE **/
+.veges{
+    z-index: 1;
+}
+.shop-cat-box .veges {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background-color: rgba(0, 0, 0, 0.19);
+     font-family: "Raleway", sans-serif;
+    padding: 10px 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    border-radius: 5px;
+
+    animation: title 1.5s infinite;
+    
+   
+    background: linear-gradient(
+      0deg,
+      rgb(30, 228, 93) 0%,
+      rgba(255, 255, 255, 1) 80%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  
+
