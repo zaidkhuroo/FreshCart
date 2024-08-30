@@ -1,8 +1,20 @@
 from django.shortcuts import render, HttpResponse
+from . models import home_page_categories
 
 # Create your views here.
 def home(request): 
-    return render(request,'index.html')
+    product1=home_page_categories() #product1 is an object of class home_page_categories
+    product1.name='Vegetables'
+    product1.img='static/images/categories_img_01.jpg'
+    product2=home_page_categories() #product1 is an object of class home_page_categories
+    product2.name='Fruits'
+    product2.img='static/images/categories_img_02.jpg'
+    product3=home_page_categories() #product1 is an object of class home_page_categories
+    product3.name='Dairy'
+    product3.img='static/images/categories_img_03.jpg'
+    products=[product1,product2,product3]
+    return render(request,'index.html', {'products':products})
+
 def about(request): 
     return render(request,'about.html')
 def checkout(request): 

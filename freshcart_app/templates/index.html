@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {%load static%}
+{%static "images" as baseUrl%}
 {%block content%}
 
 
@@ -25,7 +26,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
+                        <h1 class="m-b-20"><strong>Welcome To <br> FreshCart</strong></h1>
                         <p class="m-b-40">See how your users experience your website in realtime or view <br> trends
                             to
                             see any changes in performance over time.</p>
@@ -39,7 +40,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
+                        <h1 class="m-b-20"><strong>Welcome To <br> FreshCart</strong></h1>
                         <p class="m-b-40">See how your users experience your website in realtime or view <br> trends
                             to
                             see any changes in performance over time.</p>
@@ -60,26 +61,16 @@
 <div class="categories-shop">
     <div class="container">
         <div class="row">
+            {%for product in products%}
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <a href="{%url 'vegetables'%}">
                     <div class="shop-cat-box one">
-                        <img class="img-fluid" src="{% static 'images/categories_img_01.jpg'%}" alt="" />
-                        <h2 class="veges">Vegetables</h2>
+                        <img class="img-fluid" src="{{baseUrl}}/{{product.img}}" alt="" />
+                        <h2 class="veges">{{product.name}}</h2>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <div class="shop-cat-box">
-                    <img class="img-fluid" src="{% static 'images/categories_img_02.jpg'%}" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <div class="shop-cat-box">
-                    <img class="img-fluid" src="{% static 'images/categories_img_03.jpg'%}" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
-                </div>
-            </div>
+           {%endfor%}
         </div>
     </div>
 </div>
@@ -101,7 +92,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Start Instagram Feed  -->
 <div class="instagram-box">
