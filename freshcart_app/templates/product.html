@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Carrot</h2>
+                    <h2>{{product.name}}</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">View</li>
@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="noo-sh-title-top">Carrot</h1>
-                    <p id="price"class="text-decoration-underline">Price: ₹40 
-                       <small class="text-muted"> (₹50 / kg)</small>
+                    <h1 class="noo-sh-title-top">{{product.name}}</h1>
+                    <p id="price"class="text-decoration-underline">Price: ₹{{ product.price }} 
+                       <small class="text-muted"> (₹{{ product.origprice }} / kg)</small>
                     </p>
                     
                     <p id="saver" class="text-success fw-bold">You saved: 32% </p>
@@ -46,7 +46,7 @@
                     <div class="service-block-inner">
                         <h3>About the Product
                         </h3>
-                        <p>Fresh Carrots are nutrient-dense, non-fattening and have a reasonable amount of calories. Include them in your regular meals so that the body receives a good supply of carbohydrates, dietary fibres and essential minerals such as copper, magnesium, and iron. In India, potatoes are probably the second-most consumed vegetables after onions. </p>
+                        <p>{{ product.description }}</p>
                     </div>
                 </div>
                

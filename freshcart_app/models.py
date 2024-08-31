@@ -6,3 +6,13 @@ class home_page_categories:
     name:str
     img:str
     url:str
+    
+class Vegetables:
+    id:int
+    img:str
+    name:str
+    price:int
+    orgprice:int
+    url:str
+    sale:bool
+    new:bool
