@@ -5,3 +5,4 @@ class home_page_categories:
     id:int
     name:str
     img:str
+    url:str

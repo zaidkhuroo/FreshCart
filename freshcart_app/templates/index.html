@@ -63,7 +63,7 @@
         <div class="row">
             {%for product in products%}
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <a href="{%url 'vegetables'%}">
+                <a href="{% url product.url %}">
                     <div class="shop-cat-box one">
                         <img class="img-fluid" src="{{baseUrl}}/{{product.img}}" alt="" />
                         <h2 class="veges">{{product.name}}</h2>
