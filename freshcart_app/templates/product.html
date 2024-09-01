@@ -1,60 +1,55 @@
 {% extends 'base.html' %}
-{%load static%}
-{%block content%}
+{% load static %}
+{% block content %}
 
-    <!-- Start All Title Box -->
-    <div class="all-title-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>{{product.name}}</h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">View</li>
-                    </ul>
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>{{ product.name }}</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">{{ product.name }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+<!-- Start About Page  -->
+<div class="about-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-frame"> 
+                    <img class="img-fluid" src="{{product.img}}" alt="{{ product.name }}" />
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="noo-sh-title-top">{{ product.name }}</h1>
+                <p id="price" class="text-decoration-underline">Price: ₹{{ product.price }} 
+                   <small class="text-muted"> (₹{{ product.origprice }} / kg)</small>
+                </p>
+                
+                <p id="saver" class="text-success fw-bold">You saved: 32%</p>
+                <p id="tax">(inclusive of all taxes)</p>
+
+                <button type="button" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
+                <button type="button" class="btn btn-success btn-md ml-2 pl-5 pr-5">Wishlist</button>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-sm-6 col-lg-12">
+                <div class="service-block-inner">
+                    <h3>About the Product</h3>
+                    <p>{{ product.description }}</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End All Title Box -->
+</div>
+<!-- End About Page -->
 
-    <!-- Start About Page  -->
-    <div class="about-box-main">
-        <div class="container">
-            <div class="row">
-				<div class="col-lg-6">
-                    <div class="banner-frame"> <img class="img-fluid" src="{% static 'images/img-pro-01.jpg'%}" alt="" />
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h1 class="noo-sh-title-top">{{product.name}}</h1>
-                    <p id="price"class="text-decoration-underline">Price: ₹{{ product.price }} 
-                       <small class="text-muted"> (₹{{ product.origprice }} / kg)</small>
-                    </p>
-                    
-                    <p id="saver" class="text-success fw-bold">You saved: 32% </p>
-                    <p id="tax">(inclusive of all taxes) </p>
-
-					<button type="button" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
-                    <button type="button" class="btn btn-success btn-md ml-2  pl-5 pr-5">Wishlist</button>
-
-                    
-                </div>
-            </div>
-            <div class="row my-5">
-                <div class="col-sm-6 col-lg-12">
-                    <div class="service-block-inner">
-                        <h3>About the Product
-                        </h3>
-                        <p>{{ product.description }}</p>
-                    </div>
-                </div>
-               
-            </div>
-           
-        </div>
-    </div>
-    <!-- End About Page -->
-
-
-{%endblock%}
+{% endblock %}
