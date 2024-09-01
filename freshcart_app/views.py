@@ -22,7 +22,25 @@ products_data = {
         'new': False,
         'sale': False,
         'description': 'Fresh Tomatoes are juicy and rich...',
-    }
+    },
+    'Turnip': {
+        'img': 'images/img-pro-03.jpg',
+        'name': 'Turnip',
+        'price': 20,
+        'origprice': 34,
+        'new': True,
+        'sale': False,
+        'description': 'Fresh Turnips are juicy and rich...',
+    },
+     'Cocumber': {
+        'img': 'images/img-pro-04.jpg',
+        'name': 'Cocumber',
+        'price': 10,
+        'origprice': 22,
+        'new': True,
+        'sale': False,
+        'description': 'Fresh Turnips are juicy and rich...',
+    },
 }
     
 def vegetables(request): 

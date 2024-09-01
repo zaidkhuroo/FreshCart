@@ -1117,11 +1117,15 @@ ul.cart-list>li.total>.btn:hover {
     overflow: hidden;
     position: relative;
     margin-bottom: 30px;
+    border-radius: 10px;
 }
 
 .products-single .box-img-hover {
     overflow: hidden;
     position: relative;
+    
+    
+    
 }
 
 .box-img-hover img {
@@ -1143,6 +1147,8 @@ ul.cart-list>li.total>.btn:hover {
     padding: 2px 10px;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 5px;
+    
 }
 
 .type-lb .new {
@@ -1151,6 +1157,7 @@ ul.cart-list>li.total>.btn:hover {
     padding: 2px 10px;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 5px;
 }
 
 .why-text {
