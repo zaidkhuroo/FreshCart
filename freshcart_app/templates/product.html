@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="banner-frame"> 
-                    <img class="img-fluid" src="{{product.img}}" alt="{{ product.name }}" />
+                    <img class="img-fluid" src="{% static product.img %}" alt="{{ product.name }}" />
                 </div>
             </div>
             <div class="col-lg-6">
@@ -36,7 +36,7 @@
                 <p id="saver" class="text-success fw-bold">You saved: 32%</p>
                 <p id="tax">(inclusive of all taxes)</p>
 
-                <button type="button" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
+               <a href="{% url 'add_to_cart' product.name %}"> <button type="button" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button></a>
                 <button type="button" class="btn btn-success btn-md ml-2 pl-5 pr-5">Wishlist</button>
             </div>
         </div>

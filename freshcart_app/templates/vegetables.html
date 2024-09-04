@@ -42,7 +42,7 @@
                             <p class="new">New</p>
                         </div>
                         {%endif%}
-                        <img src="{%static product.img %}" class="img-fluid" alt="Image">
+                        <img src="{% static product.img %}" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="{%url 'product' product.name %}" data-toggle="tooltip" data-placement="right"
