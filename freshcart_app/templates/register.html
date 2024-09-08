@@ -19,22 +19,10 @@
                 {%csrf_token%}
                 {{form | crispy}}
 
-                <!-- <div class="input-field">
-                <input type="text" required>
-                <label>Enter your Username</label>
-            </div>
-            <div class="input-field">
-                <input type="password" required>
-                <label>Enter New password</label>
-            </div>
-            <div class="input-field">
-                <input type="password" required>
-                <label>Confirm New password</label>
-            </div> -->
-
                 <button type="submit">Register</button>
 
             </form>
+            <span class="create"> Already have an account? <a href="{%url 'login'%}">Login</a></span>
         </div>
     </div>
 </body>

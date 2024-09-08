@@ -20,12 +20,11 @@ body {
   width: 100%;
   padding: 0 10px;
   color: #000000;
-  font-weight: bold;
 }
 
 
 .container {
- width: 600px;
+  width: 600px;
   border-radius: 8px;
   padding: 30px;
   /* text-align: center; */
@@ -41,7 +40,7 @@ form {
 h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #fff;
+  color: #252525;
 }
 
 .input-field {
@@ -100,7 +99,7 @@ h2 {
 }
 
 .wrapper a {
-  color: #efefef;
+  color: #78b7ff;
   text-decoration: none;
 }
 
@@ -109,7 +108,7 @@ h2 {
 }
 
 button {
-  background: #fff;
+  background: #93ff99;
   color: #000;
   font-weight: 600;
   border: none;
@@ -119,19 +118,33 @@ button {
   font-size: 16px;
   border: 2px solid transparent;
   transition: 0.3s ease;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button:hover {
-  color: #7897eb;
-  border-color: #fff;
+  color: #5a5a5a;
+  border-color: #5fd0ec;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.register {
-  text-align: center;
+.create {
   margin-top: 30px;
-  color: #fff;
+  color: #737373;
+  margin-left: 8rem;
+  position: absolute;
+  margin-top: 10px;
 }
-.create{
-  color: #000;
+
+.create a {
+  font-weight: bold;
+  color: #539ef5;
+  text-decoration: none;
+}
+
+.create a:hover {
+
+  text-decoration: none;
+  color: #6df660;
 }
