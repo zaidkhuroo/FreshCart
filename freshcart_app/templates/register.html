@@ -15,7 +15,7 @@
     <div class="wrapper">
         <div class="container form-layout p-5">
             <form method="POST">
-                <h2>Login</h2>
+                <h2>Create Account</h2>
                 {%csrf_token%}
                 {{form | crispy}}
 
@@ -32,8 +32,7 @@
                 <label>Confirm New password</label>
             </div> -->
 
-                <button type="submit">Login</button>
-             <p class="create"><a href="{%url 'register'%}">Create Account</a></p>
+                <button type="submit">Register</button>
 
             </form>
         </div>
@@ -41,4 +40,3 @@
 </body>
 
 </html>
-

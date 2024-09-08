@@ -1,7 +1,11 @@
-from django.shortcuts import render,redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render,redirect, get_object_or_404
 from django.templatetags.static import static
 from . import models
+from .forms import CreateUser, LoginUser
 from .models import CartItem,Product
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -80,8 +84,32 @@ def wish(request):
     return render(request,'wishlist.html')
 def cart(request): 
     return render(request,'cart.html')
-def login(request): 
-    return render(request,'login.html')
+
+
+def login(request):
+    form=LoginUser()
+    if request.method == 'POST':
+        form =LoginUser(request, data=request.POST)
+        if form.is_valid():
+            username=request.POST.get('username') 
+            password=request.POST.get('password')
+            user= authenticate(request,username=username,password=password) 
+            if user is not None:
+                auth.login(request,user)
+                # return redirect ('')
+    context={'form': form}
+    return render(request,'login.html', context=context)            
+                
+def register(request):
+    form=CreateUser() 
+    if request.method == 'POST':
+        form =CreateUser(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect(request,'login.html')
+    context={'form': form}
+    return render(request,'register.html', context=context)            
+    
 
 
 
