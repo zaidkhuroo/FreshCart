@@ -12,6 +12,44 @@ Secure Payments: Integrated secure payment gateway for safe and reliable transac
 ## Login
 ![Login](static/images/demo/login.png)
 
+
+## Dashboard
+![Dashboard](static/images/demo/home.png)
+
+![Dashboard](static/images/demo/dash2.png)
+
+
+## Categories
+![Categories](static/images/demo/categ.png)
+
+
+## Items
+![Items](static/images/demo/subcat.png)
+
+
+## Display Item
+![Display Item](static/images/demo/show.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Login
+![Login](static/images/demo/login.png)
+
+
+
+
+
 ## Installation
 
 1. **Clone the repository:**
