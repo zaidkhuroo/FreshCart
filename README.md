@@ -6,6 +6,12 @@ User-Friendly Interface: A clean and intuitive design that makes it easy for cus
 Comprehensive Product Range: Includes farm-fresh produce, pantry staples, dairy products, meat and seafood, beverages, snacks, and health-conscious options.
 Responsive Design: Optimized for all devices, ensuring a smooth shopping experience on desktop and mobile.
 Secure Payments: Integrated secure payment gateway for safe and reliable transactions.
+
+# Screenshots
+
+## Login
+![Login](static/images/demo/login.png)
+
 ## Installation
 
 1. **Clone the repository:**

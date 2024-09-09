@@ -22,25 +22,34 @@ body {
   color: #000000;
 }
 
-
 .container {
- width: 500px;
+  width: 500px;
   border-radius: 8px;
   padding: 30px;
-  /* text-align: center; */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
+  text-align: center; /* Ensure logo and form content are centered */
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px; /* Add some space between logo and form */
+}
+
+.logo-img {
+  max-width: 200px;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  text-align: left; /* Text and fields remain left-aligned */
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #252525;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #252525;
 }
 
 .input-field {
@@ -48,57 +57,6 @@ h2 {
   border-bottom: 2px solid #ccc;
   margin: 15px 0;
 }
-
-.input-field label {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.15s ease;
-}
-
-.input-field input {
-  width: 100%;
-  height: 40px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #fff;
-}
-
-.input-field input:focus~label,
-.input-field input:valid~label {
-  font-size: 0.8rem;
-  top: 10px;
-  transform: translateY(-120%);
-}
-
-.forget {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 25px 0 35px 0;
-  color: #fff;
-}
-
-#remember {
-  accent-color: #fff;
-}
-
-.forget label {
-  display: flex;
-  align-items: center;
-}
-
-.forget label p {
-  margin-left: 8px;
-}
-
-
 
 button {
   background: #dd6767;
@@ -111,23 +69,22 @@ button {
   font-size: 16px;
   border: 2px solid transparent;
   transition: 0.3s ease;
-  width: 300px;
+  width: 80%; /* Keep the button left-aligned but fill the width */
   margin-left: auto;
   margin-right: auto;
 }
 
 button:hover {
-    color: #262525;
-    border-color: #5fd0ec;
-    background: rgba(51, 136, 248, 0.15);
+  color: #262525;
+  border-color: #5fd0ec;
+  background: rgba(51, 136, 248, 0.15);
 }
+
 .create {
-  margin-top: 30px;
+  padding-top: 5px;
   color: #737373;
-  margin-left: 3rem;
-  position: absolute;
-  margin-top: 10px;
 }
+
 .create a {
   font-weight: bold;
   color: #8494fb;
@@ -135,7 +92,6 @@ button:hover {
 }
 
 .create a:hover {
-
   text-decoration: none;
   color: #4de73f;
 }
