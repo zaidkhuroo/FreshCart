@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.templatetags.static import static
 from . import models
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 from .forms import CreateUser, LoginUser
 from .models import CartItem,Product
 from django.contrib.auth.models import auth
@@ -79,9 +82,34 @@ def about(request):
 @login_required(login_url='login')
 def checkout(request): 
     return render(request,'checkout.html')
+
 @login_required(login_url='login')
-def contact(request): 
-    return render(request,'contact-us.html')
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+       
+        # Send email
+        try:
+            send_mail(
+                f"Message from {name}: {subject}",
+                message,
+                email,  # Sender's email
+                [settings.EMAIL_HOST_USER],  # Recipient email
+                fail_silently=False,
+            )
+            messages.success(request, "Message sent successfully!")
+        except Exception as e:
+            print(f"Error sending email: {e}")
+            messages.error(request, "Failed to send message.")
+
+        return redirect('contact')  # Redirect after successful form submission
+    
+    return render(request, 'contact-us.html')
+
 @login_required(login_url='login')
 def account(request): 
     return render(request,'my-account.html')
