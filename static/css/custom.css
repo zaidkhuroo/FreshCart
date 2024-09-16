@@ -45,6 +45,70 @@
     -webkit-background-clip: text;
     color: transparent;
   }
-  
-  
 
+  .contain {
+    width: 500px;
+    border-radius: 8px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+     /* text-align: center; */
+    margin: auto;
+   
+
+  form {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Text and fields remain left-aligned */
+  }
+  
+ 
+  
+  .input-field {
+    position: relative;
+    border-bottom: 2px solid #ccc;
+    margin: 15px 0;
+  }
+  
+  .change-password-button{
+    background: #dd6767;
+    color: #d6d6d6;
+    font-weight: 600;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    width: 80%; /* Keep the button left-aligned but fill the width */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .change-password-button:hover {
+    color: #262525;
+    border-color: #5fd0ec;
+    background: rgba(51, 136, 248, 0.15);
+  }
+
+.back{
+    background: #dd6767;
+    color: #d6d6d6;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    width: 80px; /* Keep the button left-aligned but fill the width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.pass-success{
+   text-align: center;
+   width: 100%;
+   padding: 20px;
+}

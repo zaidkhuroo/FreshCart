@@ -9,6 +9,10 @@ from .models import CartItem,Product
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 # Create your views here.
@@ -149,8 +153,12 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
-
-
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'change_password.html'  # Create this template for the change password page
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('password_change_done')  # Redirect after successful password change
+    success_message = "Your password was successfully updated!"
+    
 
 
 
