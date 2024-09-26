@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class home_page_categories:
@@ -40,15 +41,18 @@ class Product(models.Model):
         return self.price < self.origprice
     
 class CartItem(models.Model):
-    product_name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Ensure this exists
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Make sure it links to the user
     quantity = models.IntegerField(default=1)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    
 
     def save(self, *args, **kwargs):
-        self.total_price = self.price * self.quantity
+        self.total_price = self.product.price * self.quantity  # Correct price calculation
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.product_name
+        return f"{self.product.name} - {self.quantity}"
+
+
+    
+    

@@ -3,7 +3,6 @@
 {% load static %}
 {% block content %}
 
-
 <!-- Start All Title Box -->
 <div class="all-title-box">
     <div class="container">
@@ -25,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <form action="{% url 'update_cart' %}" method="post">  <!-- Add form to update cart -->
+                <form action="{% url 'update_cart' %}" method="post">
                     {% csrf_token %}
                     <div class="table-main table-responsive">
                         <table class="table">
@@ -53,13 +52,13 @@
                                         </a>
                                     </td>
                                     <td class="price-pr">
-                                        <p>$ {{ item.product.price }}</p>
+                                        <p>₹{{ item.product.price }}</p>
                                     </td>
                                     <td class="quantity-box">
                                         <input type="number" name="{{ item.id }}" value="{{ item.quantity }}" min="1" step="1" class="c-input-text qty text">
                                     </td>
                                     <td class="total-pr">
-                                        <p>$ {{ item.quantity|multiply:item.product.price }}</p>
+                                        <p>₹{{ item.total_price }}</p>
                                     </td>
                                     <td class="remove-pr">
                                         <a href="{% url 'remove_from_cart' item.id %}">
@@ -74,6 +73,7 @@
                                     </td>
                                 </tr>
                                 {% endfor %}
+                                
                             </tbody>
                         </table>
                     </div>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-6">
                             <div class="update-box">
-                                <input value="Update Cart" type="submit">  <!-- Button to update cart -->
+                                <input value="Update Cart" type="submit">
                             </div>
                         </div>
                     </div>
@@ -102,12 +102,12 @@
                             <h3>Order summary</h3>
                             <div class="d-flex">
                                 <h4>Sub Total</h4>
-                                <div class="ml-auto font-weight-bold">$ {{ cart_total }}</div>
+                                <div class="ml-auto font-weight-bold">₹ {{ cart_total }}</div>
                             </div>
                             <hr>
                             <div class="d-flex gr-total">
                                 <h5>Grand Total</h5>
-                                <div class="ml-auto h5">$ {{ cart_total }}</div>
+                                <div class="ml-auto h5">₹ {{ cart_total }}</div>
                             </div>
                             <hr>
                         </div>

@@ -44,27 +44,38 @@ def product(request, product_name):
     product = get_object_or_404(Product, name=product_name)  # Fetch product from the database 
     product_img_url = static(product.img)  # Get the image URL from static files
     return render(request, 'product.html', {'product': product, 'img_url': product_img_url})
+
+
 @login_required(login_url='login')
 def add_to_cart(request, product_name):
     if request.method == 'POST':
         product = get_object_or_404(Product, name=product_name)
-        quantity = int(request.POST.get('quantity', 1))  # Default quantity to 1
+        quantity = int(request.POST.get('quantity', 1))  # Default to 1 if not provided
         cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+        
+        # Update quantity
         cart_item.quantity += quantity
         cart_item.save()
-        return redirect('cart')  # Redirect to the cart page after adding the item
-    return redirect('vegetables')  # Redirect back to the vegetables page if not a POST request  
+
+        messages.success(request, f'{product.name} added to your cart.')
+        return redirect('cart')  # Redirect to cart view
+    return redirect('vegetables')
+
+
 
 @login_required(login_url='login')
 def cart_view(request):
-    cart_items = CartItem.objects.filter(user=request.user)  # Assuming you have a user field
-    cart_total = sum(item.price * item.quantity for item in cart_items)
-
+    cart_items = CartItem.objects.filter(user=request.user)
+    print(cart_items)  # Debugging: Check if cart items are being fetched
+    cart_total = sum(item.total_price for item in cart_items)
     context = {
         'cart_items': cart_items,
         'cart_total': cart_total,
     }
     return render(request, 'cart.html', context)
+
+
+
 @login_required(login_url='login')
 def update_cart(request):
     if request.method == 'POST':
@@ -160,5 +171,10 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_message = "Your password was successfully updated!"
     
 
+@login_required(login_url='login')
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(CartItem, id=item_id, user=request.user)
+    cart_item.delete()
+    return redirect('cart')
 
 
