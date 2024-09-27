@@ -43,7 +43,8 @@
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-                                            <img class="img-fluid" src="{% static item.product.img %}" alt="{{ item.product.name }}" />
+                                            <img class="img-fluid" src="{% static item.product.img %}"
+                                                alt="{{ item.product.name }}" />
                                         </a>
                                     </td>
                                     <td class="name-pr">
@@ -55,7 +56,8 @@
                                         <p>₹{{ item.product.price }}</p>
                                     </td>
                                     <td class="quantity-box">
-                                        <input type="number" name="{{ item.id }}" value="{{ item.quantity }}" min="1" step="1" class="c-input-text qty text">
+                                        <input type="number" name="{{ item.id }}" value="{{ item.quantity }}" min="1"
+                                            step="1" class="c-input-text qty text">
                                     </td>
                                     <td class="total-pr">
                                         <p>₹{{ item.total_price }}</p>
@@ -73,7 +75,8 @@
                                     </td>
                                 </tr>
                                 {% endfor %}
-                                
+
+
                             </tbody>
                         </table>
                     </div>
@@ -81,7 +84,8 @@
                         <div class="col-lg-6 col-sm-6">
                             <div class="coupon-box">
                                 <div class="input-group input-group-sm">
-                                    <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
+                                    <input class="form-control" placeholder="Enter your coupon code"
+                                        aria-label="Coupon code" type="text">
                                     <div class="input-group-append">
                                         <button class="btn btn-theme" type="button">Apply Coupon</button>
                                     </div>

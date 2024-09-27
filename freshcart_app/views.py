@@ -46,33 +46,42 @@ def product(request, product_name):
     return render(request, 'product.html', {'product': product, 'img_url': product_img_url})
 
 
+# CART
+
 @login_required(login_url='login')
 def add_to_cart(request, product_name):
-    if request.method == 'POST':
-        product = get_object_or_404(Product, name=product_name)
-        quantity = int(request.POST.get('quantity', 1))  # Default to 1 if not provided
-        cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
-        
-        # Update quantity
-        cart_item.quantity += quantity
-        cart_item.save()
-
-        messages.success(request, f'{product.name} added to your cart.')
-        return redirect('cart')  # Redirect to cart view
-    return redirect('vegetables')
+    product = get_object_or_404(Product, name=product_name)
+    
+    # Get quantity from POST data, default to 1 if not provided
+    quantity = int(request.POST.get('quantity', 1))
+    
+    # Check if the item already exists in the user's cart
+    cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+    
+    if created:
+        cart_item.quantity = quantity  # Set quantity if item is newly added
+    else:
+        cart_item.quantity += quantity  # Update quantity if already exists
+    
+    # Calculate total price and save the cart item
+    cart_item.save()
+    
+    messages.success(request, f'{product.name} added to your cart.')
+    return redirect('cart')
 
 
 
 @login_required(login_url='login')
 def cart_view(request):
     cart_items = CartItem.objects.filter(user=request.user)
-    print(cart_items)  # Debugging: Check if cart items are being fetched
     cart_total = sum(item.total_price for item in cart_items)
+
     context = {
         'cart_items': cart_items,
         'cart_total': cart_total,
     }
     return render(request, 'cart.html', context)
+
 
 
 
@@ -85,6 +94,15 @@ def update_cart(request):
                 cart_item.quantity = quantity
                 cart_item.save()
     return redirect('cart')
+
+
+@login_required(login_url='login')
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(CartItem, id=item_id, user=request.user)
+    cart_item.delete()
+    return redirect('cart')
+
+
 @login_required(login_url='login')
 def fruits(request): 
     return render(request,'fruits.html')
@@ -171,10 +189,5 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_message = "Your password was successfully updated!"
     
 
-@login_required(login_url='login')
-def remove_from_cart(request, item_id):
-    cart_item = get_object_or_404(CartItem, id=item_id, user=request.user)
-    cart_item.delete()
-    return redirect('cart')
 
 

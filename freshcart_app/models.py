@@ -41,17 +41,18 @@ class Product(models.Model):
         return self.price < self.origprice
     
 class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Ensure this exists
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Make sure it links to the user
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Link to Product model
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Link to User
     quantity = models.IntegerField(default=1)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def save(self, *args, **kwargs):
-        self.total_price = self.product.price * self.quantity  # Correct price calculation
+        self.total_price = self.product.price * self.quantity  # Correctly calculate total price
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.product.name} - {self.quantity}"
+
 
 
     
