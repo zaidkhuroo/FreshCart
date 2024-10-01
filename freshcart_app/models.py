@@ -52,6 +52,15 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.quantity}"
+    
+    
+class WishlistItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Link to Product model
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Link to User
+
+    def __str__(self):
+        return f"{self.product.name}"
+
 
 
 

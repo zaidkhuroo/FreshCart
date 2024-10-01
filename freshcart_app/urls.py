@@ -19,10 +19,16 @@ urlpatterns = [
     path('register', views.register, name='register'), 
     path('changePassword/', ChangePasswordView.as_view(), name='changePassword'),
     path('password-change-done/',TemplateView.as_view(template_name='password_change_done.html'), name='password_change_done'),  # Add a success page
-    path('product/<str:product_name>/', views.product, name='product'),
+    path('product/<str:product_name>/', views.product, name='product'), 
     
+    # Cart   
     path('cart', views.cart_view, name='cart'), 
     path('add_to_cart/<str:product_name>/', views.add_to_cart, name='add_to_cart'),
     path('cart/update/', views.update_cart, name='update_cart'),
      path('cart/remove/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
+     
+     #wishlist
+    path('wishlist/', views.wishlist_view, name='wishlist'),
+    path('add_to_wishlist/<str:product_name>/', views.add_to_wishlist, name='add_to_wishlist'),
+    path('remove_from_wishlist/<int:item_id>/', views.remove_from_wishlist, name='remove_from_wishlist'),
 ]

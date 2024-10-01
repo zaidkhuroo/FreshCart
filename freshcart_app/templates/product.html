@@ -43,8 +43,12 @@
                     
                     <button type="submit" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
                 </form>
+                <form method="POST" action="{% url 'add_to_wishlist' product.name %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-md ml-2 pl-5 pr-5">Wishlist</button>
+                </form>
                 
-                <button type="button" class="btn btn-success btn-md ml-2 pl-5 pr-5">Wishlist</button>
+                
             </div>
         </div>
         <div class="row my-5">

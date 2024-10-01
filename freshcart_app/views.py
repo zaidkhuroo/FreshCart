@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from .forms import CreateUser, LoginUser
-from .models import CartItem,Product
+from .models import CartItem,Product,WishlistItem
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -46,7 +46,7 @@ def product(request, product_name):
     return render(request, 'product.html', {'product': product, 'img_url': product_img_url})
 
 
-# CART START
+# CART
 
 @login_required(login_url='login')
 def add_to_cart(request, product_name):
@@ -68,6 +68,7 @@ def add_to_cart(request, product_name):
     
     messages.success(request, f'{product.name} added to your cart.')
     return redirect('cart')
+
 
 
 @login_required(login_url='login')
@@ -101,8 +102,6 @@ def remove_from_cart(request, item_id):
     cart_item.delete()
     return redirect('cart')
 
-
-#cart End
 
 @login_required(login_url='login')
 def fruits(request): 
@@ -188,6 +187,54 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('password_change_done')  # Redirect after successful password change
     success_message = "Your password was successfully updated!"
+    
+    
+
+# CART START
+
+@login_required(login_url='login')
+def add_to_wishlist(request, product_name):
+    product = get_object_or_404(Product, name=product_name)
+    
+    quantity = int(request.POST.get('quantity', 1))
+    
+    wishlist_item, created = WishlistItem.objects.get_or_create(user=request.user, product=product)
+ 
+    wishlist_item.quantity = quantity  # Set quantity if item is newly added
+  
+    wishlist_item.save()
+    
+    messages.success(request, f'{product.name} added to your wishlist.')
+    return redirect('wishlist')
+
+
+@login_required(login_url='login')
+def wishlist_view(request):
+    wishlist_items = WishlistItem.objects.filter(user=request.user)
+    context = {
+        'wishlist_items': wishlist_items  # Pass actual data
+    }
+    return render(request, 'wishlist.html', context)
+
+
+@login_required(login_url='login')
+def update_wishlist(request):
+    if request.method == 'POST':
+        for item_id, quantity in request.POST.items():
+            if item_id.isdigit():  # Ensure the item_id is valid
+                wishlist_item = get_object_or_404(WishlistItem, id=item_id)
+                wishlist_item.quantity = quantity
+                wishlist_item.save()
+    return redirect('wishlist')
+
+
+@login_required(login_url='login')
+def remove_from_wishlist(request, item_id):
+    wishlist_item = get_object_or_404(WishlistItem, id=item_id, user=request.user)
+    wishlist_item.delete()
+    return redirect('wishlist')
+#wishlist End
+
     
 
 
