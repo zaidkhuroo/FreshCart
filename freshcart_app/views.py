@@ -46,7 +46,7 @@ def product(request, product_name):
     return render(request, 'product.html', {'product': product, 'img_url': product_img_url})
 
 
-# CART
+# CART START
 
 @login_required(login_url='login')
 def add_to_cart(request, product_name):
@@ -68,7 +68,6 @@ def add_to_cart(request, product_name):
     
     messages.success(request, f'{product.name} added to your cart.')
     return redirect('cart')
-
 
 
 @login_required(login_url='login')
@@ -102,6 +101,8 @@ def remove_from_cart(request, item_id):
     cart_item.delete()
     return redirect('cart')
 
+
+#cart End
 
 @login_required(login_url='login')
 def fruits(request): 
