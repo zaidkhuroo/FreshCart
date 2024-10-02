@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<style>
+    .flexbox-container {
+    display: flex;
+    align-items: center;
+}
 
+.flexbox-container form {
+    margin-right: 10px; /* Adjust the spacing between forms as needed */
+}
+</style>
 <!-- Start All Title Box -->
 <div class="all-title-box">
     <div class="container">
@@ -23,32 +32,33 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="banner-frame"> 
+                <div class="banner-frame">
                     <img class="img-fluid" src="{% static product.img %}" alt="{{ product.name }}" />
                 </div>
             </div>
             <div class="col-lg-6">
                 <h1 class="noo-sh-title-top">{{ product.name }}</h1>
-                <p id="price" class="text-decoration-underline">Price: ₹{{ product.price }} 
-                   <small class="text-muted"> (₹{{ product.origprice }} / kg)</small>
+                <p id="price" class="text-decoration-underline">Price: ₹{{ product.price }}
+                    <small class="text-muted"> (₹{{ product.origprice }} / kg)</small>
                 </p>
-                
+
                 <p id="saver" class="text-success fw-bold">You saved: 32%</p>
                 <p id="tax">(inclusive of all taxes)</p>
+                <div class="flexbox-container">
+                    <form method="POST" action="{% url 'add_to_cart' product.name %}">
+                        {% csrf_token %}
+                        <input type="number" id="quantity" name="quantity" min="1" class="c-input-text qty text"
+                            placeholder="Quantity" style="width: 70px;">
 
-                <form method="POST" action="{% url 'add_to_cart' product.name %}">
-                    {% csrf_token %}
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="c-input-text qty text">
-                    
-                    <button type="submit" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
-                </form>
-                <form method="POST" action="{% url 'add_to_wishlist' product.name %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-success btn-md ml-2 pl-5 pr-5">Wishlist</button>
-                </form>
-                
-                
+
+                        <button type="submit" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
+                    </form>
+                    <form method="POST" action="{% url 'add_to_wishlist' product.name %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success btn-md pl-5 pr-5">Wishlist</button>
+                    </form>
+
+                </div>
             </div>
         </div>
         <div class="row my-5">
@@ -62,7 +72,7 @@
     </div>
 </div>
 <!-- End About Page -->
- <!-- Start Instagram Feed  -->
+<!-- Start Instagram Feed  -->
 <div class="instagram-box">
     <div class="main-instagram owl-carousel owl-theme">
         <div class="item">
