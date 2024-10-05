@@ -18,6 +18,16 @@ class Vegetables:
     sale:bool
     new:bool
     
+class Fruits:
+    id:int
+    img:str
+    name:str
+    price:int
+    orgprice:int
+    url:str
+    sale:bool
+    new:bool
+    
     
 class Product(models.Model):
     name = models.CharField(max_length=100) #primary key
