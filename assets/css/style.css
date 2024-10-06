@@ -2068,14 +2068,20 @@ ul.cart-list>li.total>.btn:hover {
 }
 
 .team-description {
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 
 .team-description p {
-    font-size: 14px;
+    font-size: 1.2rem;
     margin: 0px;
 }
-
+.hello{
+    font-weight: bold;
+    font-size: 20px;
+}
+.freshcart-about{
+    font-size: 1.1rem;
+}
 .hover-team:hover .social {
     opacity: 1;
 }
@@ -2105,7 +2111,9 @@ ul.cart-list>li.total>.btn:hover {
 }
 
 .hover-team .team-content .title {
+    margin-top: 15px;
     border-bottom: 2px solid #b0b435;
+    font-size: 20px;
 }
 
 .shop-box-inner {
