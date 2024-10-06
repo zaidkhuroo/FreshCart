@@ -10,7 +10,7 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),  
     path('account', views.account, name='account'), 
     path('wish', views.wish, name='wish'), 
-    path('product', views.product, name='product'), 
+     
     path('vegetables', views.vegetables, name='vegetables'), 
     path('dairy', views.dairy, name='dairy'), 
     path('fruits', views.fruits, name='fruits'), 
@@ -21,7 +21,7 @@ urlpatterns = [
     #login and password
     path('changePassword/', ChangePasswordView.as_view(), name='changePassword'),
     path('password-change-done/',TemplateView.as_view(template_name='password_change_done.html'), name='password_change_done'),  # success page
-    path('product/<str:product_name>/', views.product, name='product'), 
+    path('product/<str:product_name>/', views.product_view, name='product'),
     
     # Cart   
     path('cart', views.cart_view, name='cart'), 
@@ -34,3 +34,4 @@ urlpatterns = [
     path('add_to_wishlist/<str:product_name>/', views.add_to_wishlist, name='add_to_wishlist'),
     path('remove_from_wishlist/<int:item_id>/', views.remove_from_wishlist, name='remove_from_wishlist'),
 ]
+

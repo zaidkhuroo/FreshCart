@@ -138,3 +138,4 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)  # Cast to int if needed
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+

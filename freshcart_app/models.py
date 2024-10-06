@@ -56,17 +56,22 @@ class Fruits(models.Model):
     
 #cart
 class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Link to Product model
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)  # Link to Product model
+    fruit = models.ForeignKey(Fruits, null=True, blank=True, on_delete=models.CASCADE)  # Link to Fruits model
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Link to User
     quantity = models.IntegerField(default=1)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def save(self, *args, **kwargs):
-        self.total_price = self.product.price * self.quantity  # Correctly calculate total price
+        if self.product:
+            self.total_price = self.product.price * self.quantity  # Calculate price for vegetable
+        elif self.fruit:
+            self.total_price = self.fruit.price * self.quantity  # Calculate price for fruit
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.product.name} - {self.quantity}"
+        return f"{self.product.name if self.product else self.fruit.name} - {self.quantity}"
+
     
 #  wishlist   # 
 class WishlistItem(models.Model):

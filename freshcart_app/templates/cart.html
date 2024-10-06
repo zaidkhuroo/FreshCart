@@ -3,6 +3,10 @@
 {% load static %}
 {% block content %}
 
+
+<style>
+    
+</style>
 <!-- Start All Title Box -->
 <div class="all-title-box">
     <div class="container">
@@ -43,17 +47,28 @@
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-                                            <img class="img-fluid" src="{% static item.product.img %}"
-                                                alt="{{ item.product.name }}" />
+                                            {% if item.product %}
+                                                <img class="img-fluid" src="{% static item.product.img %}" alt="{{ item.product.name }}" />
+                                            {% elif item.fruit %}
+                                                <img class="img-fluid" src="{% static item.fruit.img %}" alt="{{ item.fruit.name }}" />
+                                            {% else %}
+                                                <img class="img-fluid" src="{% static 'path/to/default/image.jpg' %}" alt="No Image Available" />
+                                            {% endif %}
                                         </a>
                                     </td>
+                                    
                                     <td class="name-pr">
                                         <a href="#">
-                                            {{ item.product.name }}
+                                            <!-- Conditional display for product or fruit names -->
+                                            {% if item.product %}
+                                                {{ item.product.name }}
+                                            {% else %}
+                                                {{ item.fruit.name }}
+                                            {% endif %}
                                         </a>
                                     </td>
                                     <td class="price-pr">
-                                        <p>₹{{ item.product.price }}</p>
+                                        <p>₹{% if item.product %}{{ item.product.price }}{% else %}{{ item.fruit.price }}{% endif %}</p>
                                     </td>
                                     <td class="quantity-box">
                                         <input type="number" name="{{ item.id }}" value="{{ item.quantity }}" min="1"
@@ -75,8 +90,6 @@
                                     </td>
                                 </tr>
                                 {% endfor %}
-
-
                             </tbody>
                         </table>
                     </div>
