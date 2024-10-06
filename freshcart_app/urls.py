@@ -17,8 +17,10 @@ urlpatterns = [
     path('', views.login, name='login'), 
     path('logout', views.logout, name='logout'), 
     path('register', views.register, name='register'), 
+    
+    #login and password
     path('changePassword/', ChangePasswordView.as_view(), name='changePassword'),
-    path('password-change-done/',TemplateView.as_view(template_name='password_change_done.html'), name='password_change_done'),  # Add a success page
+    path('password-change-done/',TemplateView.as_view(template_name='password_change_done.html'), name='password_change_done'),  # success page
     path('product/<str:product_name>/', views.product, name='product'), 
     
     # Cart   

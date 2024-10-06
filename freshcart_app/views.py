@@ -149,7 +149,7 @@ fruits_data = {
         'new': True,
         'sale': True,
         'description': 'Strawberries are a popular berry known for their bright red color, juicy texture, and sweet flavor. They are rich in vitamin C, manganese, and antioxidants, making them a highly nutritious snack. Strawberries are commonly eaten fresh, blended into smoothies, or added to desserts like cakes and pies. They are also a favorite for making jams and sauces. In addition to their delicious taste, strawberries are known for supporting heart health, reducing inflammation, and promoting healthy skin. This versatile fruit is enjoyed around the world in a variety of dishes and forms.',
-    }
+    },
 }
 
 
