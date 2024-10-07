@@ -196,7 +196,7 @@ def contact(request):
 @login_required(login_url='login')
 def account(request): 
     return render(request,'my-account.html')
-def wish(request): 
+def wishlist(request): 
     return render(request,'wishlist.html')
 @login_required(login_url='login')
 def cart(request): 

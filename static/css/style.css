@@ -999,7 +999,17 @@ ul.cart-list>li.total>.btn:hover {
     text-transform: uppercase;
     padding: 10px 20px;
 }
-
+.choose{
+    text-align: center;
+    margin: 10px;
+}
+.choose h2{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.choose p{
+    font-size: 18px;
+}
 /*------------------------------------------------------------------ Categories Shop -------------------------------------------------------------------*/
 .categories-shop {
     padding: 70px 0px;
@@ -1015,6 +1025,7 @@ ul.cart-list>li.total>.btn:hover {
     -webkit-transition: all 0.1s ease;
     transition: all 0.1s ease-in-out 0s;
     text-align: center;
+    
 }
 
 .shop-cat-box img {
@@ -1024,6 +1035,7 @@ ul.cart-list>li.total>.btn:hover {
     transition: opacity 0.35s, transform 0.35s;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    border-radius: 5px;
  
 }
 
@@ -1513,27 +1525,7 @@ ul.cart-list>li.total>.btn:hover {
     position: relative;
 }
 
-.hov-in {
-    opacity: 0;
-    background: rgba(211, 59, 51, 0.5);
-    bottom: -100%;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-transition: all 0.3s ease-out 0.5s;
-    -moz-transition: all 0.3s ease-out 0.5s;
-    -o-transition: all 0.3s ease-out 0.5s;
-    -ms-transition: all 0.3s ease-out 0.5s;
-    transition: all 0.3s ease-out 0.5s;
-    text-align: center;
-    display: table;
-}
 
-.hov-in a {
-    display: table-cell;
-    vertical-align: middle;
-    height: 100%;
-}
 
 .hov-in i {
     color: #000000;
