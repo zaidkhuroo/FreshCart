@@ -224,18 +224,30 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
 @login_required(login_url='login')
 def add_to_wishlist(request, product_name):
-    product = get_object_or_404(Product, name=product_name)
+    product = None
+    fruit = None
+    try:
+        fruit = Fruits.objects.get(name=product_name)
+    except Fruits.DoesNotExist:
+        product = get_object_or_404(Product, name=product_name)
     
     quantity = int(request.POST.get('quantity', 1))
-    
-    wishlist_item, created = WishlistItem.objects.get_or_create(user=request.user, product=product)
- 
-    wishlist_item.quantity = quantity  # Set quantity if item is newly added
-  
+
+    if product:
+        wishlist_item, created = WishlistItem.objects.get_or_create(
+            user=request.user, product=product, fruit=None  # Ensure fruit is None if product is being added
+        )
+    else:
+        wishlist_item, created = WishlistItem.objects.get_or_create(
+            user=request.user, fruit=fruit, product=None  # Ensure product is None if fruit is being added
+        )
+        
+    wishlist_item.quantity = quantity  # Set quantity if the item is newly added
     wishlist_item.save()
-    
-    messages.success(request, f'{product.name} added to your wishlist.')
+
+    messages.success(request, f'{product_name} added to your wishlist.')
     return redirect('wishlist')
+
 
 
 @login_required(login_url='login')

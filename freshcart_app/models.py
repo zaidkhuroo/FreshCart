@@ -75,11 +75,11 @@ class CartItem(models.Model):
     
 #  wishlist   # 
 class WishlistItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Link to Product model
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Link to User
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)  # Allow null values
+    fruit = models.ForeignKey(Fruits, null=True, blank=True, on_delete=models.CASCADE)    # Allow null values
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
+    quantity = models.IntegerField(default=1)
 
-    def __str__(self):
-        return f"{self.product.name}"
 
 
 
