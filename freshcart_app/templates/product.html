@@ -7,7 +7,7 @@
     align-items: center;
 }
 .flexbox-container form {
-    margin-right: 10px; /* Adjust the spacing between forms as needed */
+    margin-right: 10px;
 }
 </style>
 
@@ -49,7 +49,7 @@
                 <div class="flexbox-container">
                     <form method="POST" action="{% url 'add_to_cart' product.name %}">
                         {% csrf_token %}
-                        <input type="number" id="quantity" name="quantity" min="1" class="c-input-text qty text"
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" class="c-input-text qty text"
                             placeholder="Quantity" style="width: 70px;">
                         <button type="submit" class="btn btn-danger btn-md pl-5 pr-5 fw-bolder">Add to Basket</button>
                     </form>
@@ -65,11 +65,13 @@
                 <div class="service-block-inner">
                     <h3>About the Product</h3>
                     <p>{{ product.description }}</p>
-                    <!-- If you want to differentiate between fruits and vegetables -->
+                    <!-- If you want to differentiate between fruits, vegetables, and dairy -->
                     {% if product_type == 'fruit' %}
                         <p>Category: Fruit</p>
                     {% elif product_type == 'vegetable' %}
                         <p>Category: Vegetable</p>
+                    {% elif product_type == 'dairy' %}
+                        <p>Category: Dairy</p>
                     {% endif %}
                 </div>
             </div>

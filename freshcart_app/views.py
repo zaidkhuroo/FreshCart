@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from .forms import CreateUser, LoginUser
-from .models import CartItem,Product,WishlistItem,Fruits
+from .models import CartItem,Product,WishlistItem,Fruits,Dairy
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -50,55 +50,78 @@ def fruits(request):
     fruit_products = Fruits.objects.all()  # Fetching all products from the database
     return render(request, 'fruits.html', {'fruit_products': fruit_products})
 
+#dairy
+
+@login_required(login_url='login')   
+def dairy(request): 
+    dairy_products = Dairy.objects.all()  # Fetching all products from the database
+    return render(request, 'dairy.html', {'dairy_products': dairy_products})
+
 
 #product view for vegetables
 @login_required(login_url='login')
 def product_view(request, product_name):
-    # First try to fetch the product from the Fruits model
+    # Try to fetch the product from Fruits model first
     try:
         product = Fruits.objects.get(name=product_name)
         product_type = 'fruit'
     except Fruits.DoesNotExist:
-        # If it doesn't exist in Fruits, try to fetch from Product (vegetables)
-        product = get_object_or_404(Product, name=product_name)
-        product_type = 'vegetable'
+        # If not in Fruits, try to fetch from Vegetables model
+        try:
+            product = Product.objects.get(name=product_name)
+            product_type = 'vegetable'
+        except Product.DoesNotExist:
+            # If not in Vegetables, try to fetch from Dairy model
+            product = get_object_or_404(Dairy, name=product_name)
+            product_type = 'dairy'
 
     product_img_url = static(product.img)  # Get the image URL from static files
+
     return render(request, 'product.html', {
         'product': product,
         'product_type': product_type,  # Pass product type to the template
         'img_url': product_img_url
     })
 
+
 # CART
 
 @login_required(login_url='login')
 def add_to_cart(request, product_name):
-    # First, try to fetch the product from the Fruits model
     product = None
     fruit = None
+    dairy = None
+
+    # Try to fetch the product from the Fruits model first
     try:
         fruit = Fruits.objects.get(name=product_name)
     except Fruits.DoesNotExist:
-        product = get_object_or_404(Product, name=product_name)
+        # If not in Fruits, try to fetch from the Product (vegetables) model
+        try:
+            product = Product.objects.get(name=product_name)
+        except Product.DoesNotExist:
+            # If not in Fruits or Vegetables, try to fetch from Dairy model
+            dairy = get_object_or_404(Dairy, name=product_name)
 
     # Get quantity from POST data, default to 1 if not provided
     quantity = int(request.POST.get('quantity', 1))
-    
-    # Check if the item already exists in the user's cart
-    if product:
-        cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
-    else:
+
+    # Check if the item already exists in the user's cart and create or update accordingly
+    if fruit:
         cart_item, created = CartItem.objects.get_or_create(user=request.user, fruit=fruit)
+    elif product:
+        cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+    elif dairy:
+        cart_item, created = CartItem.objects.get_or_create(user=request.user, dairy=dairy)
     
     if created:
         cart_item.quantity = quantity  # Set quantity if item is newly added
     else:
         cart_item.quantity += quantity  # Update quantity if already exists
-    
+
     # Save the cart item
     cart_item.save()
-    
+
     messages.success(request, f'{product_name} added to your cart.')
     return redirect('cart')
 
@@ -136,9 +159,6 @@ def remove_from_cart(request, item_id):
 
 
 
-@login_required(login_url='login')
-def dairy(request): 
-    return render(request,'dairy.html')
 @login_required(login_url='login')
 def about(request): 
     return render(request,'about.html')
@@ -226,21 +246,34 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 def add_to_wishlist(request, product_name):
     product = None
     fruit = None
+    dairy = None
+
+    # Try to fetch the product from the Fruits model first
     try:
         fruit = Fruits.objects.get(name=product_name)
     except Fruits.DoesNotExist:
-        product = get_object_or_404(Product, name=product_name)
-    
+        # If not in Fruits, try to fetch from the Product (vegetables) model
+        try:
+            product = Product.objects.get(name=product_name)
+        except Product.DoesNotExist:
+            # If not in Fruits or Vegetables, try to fetch from Dairy model
+            dairy = get_object_or_404(Dairy, name=product_name)
+
+    # Get quantity from POST data, default to 1 if not provided
     quantity = int(request.POST.get('quantity', 1))
 
     if product:
         wishlist_item, created = WishlistItem.objects.get_or_create(
             user=request.user, product=product, fruit=None  # Ensure fruit is None if product is being added
         )
-    else:
+    elif fruit:
         wishlist_item, created = WishlistItem.objects.get_or_create(
             user=request.user, fruit=fruit, product=None  # Ensure product is None if fruit is being added
         )
+    elif dairy:
+        wishlist_item, created = WishlistItem.objects.get_or_create(
+            user=request.user, dairy=dairy, product=None  # Ensure product is None if dairy is being added
+        )   
         
     wishlist_item.quantity = quantity  # Set quantity if the item is newly added
     wishlist_item.save()

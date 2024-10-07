@@ -51,6 +51,8 @@
                                                 <img class="img-fluid" src="{% static item.product.img %}" alt="{{ item.product.name }}" />
                                             {% elif item.fruit %}
                                                 <img class="img-fluid" src="{% static item.fruit.img %}" alt="{{ item.fruit.name }}" />
+                                                {% elif item.dairy %}
+                                                <img class="img-fluid" src="{% static item.dairy.img %}" alt="{{ item.dairy.name }}" />
                                             {% else %}
                                                 <img class="img-fluid" src="{% static 'path/to/default/image.jpg' %}" alt="No Image Available" />
                                             {% endif %}
@@ -61,14 +63,19 @@
                                         <a href="#">
                                             <!-- Conditional display for product or fruit names -->
                                             {% if item.product %}
-                                                {{ item.product.name }}
-                                            {% else %}
-                                                {{ item.fruit.name }}
-                                            {% endif %}
+                                            {{ item.product.name }}
+                                        {% elif item.fruit %}
+                                            {{ item.fruit.name }}
+                                        {% elif item.dairy %}
+                                            {{ item.dairy.name }}
+                                        {% endif %}
                                         </a>
                                     </td>
                                     <td class="price-pr">
-                                        <p>₹{% if item.product %}{{ item.product.price }}{% else %}{{ item.fruit.price }}{% endif %}</p>
+                                        <p>₹{% if item.product %}{{ item.product.price }}
+                                            {% elif item.fruit %}{{ item.fruit.price }}
+                                            {% elif item.dairy %}{{ item.dairy.price }}
+                                            {% endif %}
                                     </td>
                                     <td class="quantity-box">
                                         <input type="number" name="{{ item.id }}" value="{{ item.quantity }}" min="1"
