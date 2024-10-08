@@ -261,6 +261,7 @@ p {
     border: none;
     padding: 0px;
     border-radius: 0px;
+    
 }
 
 .right-phone-box {
@@ -380,8 +381,6 @@ p {
     font-size: 13px;
 }
 
-.main-header {}
-
 .search a {
     color: #b0b435;
 }
@@ -427,6 +426,8 @@ ul.cart-list>li.total>.btn {
 
     nav.navbar li.dropdown ul.dropdown-menu {
         border-top: solid 5px;
+        font-size: 16px;
+        font-weight: bold;
     }
 
     /* Navbar Center ------*/
@@ -583,7 +584,7 @@ nav.navbar.navbar-inverse .attr-nav>ul>li>a {
 }
 
 nav.navbar.navbar-inverse .attr-nav>ul>li.dropdown ul.dropdown-menu {
-    background-color: #222;
+    background-color: #bab8b8;
     border-left: solid 1px #303030;
     border-bottom: solid 1px #303030;
     border-right: solid 1px #303030;
@@ -667,7 +668,7 @@ nav.navbar.bootsnav ul.nav li.megamenu-fw>a:hover {
 
 @media (min-width: 1024px) {
     nav.navbar.navbar-inverse ul.nav .dropdown-menu {
-        background-color: #222 !important;
+        background-color: #a8a6a6 !important;
         border-left: solid 1px #303030 !important;
         border-bottom: solid 1px #303030 !important;
         border-right: solid 1px #303030 !important;
@@ -770,10 +771,8 @@ nav.navbar.bootsnav ul.nav li.megamenu-fw>a:hover {
 
 nav.navbar.bootsnav ul.navbar-nav li.dropdown ul.dropdown-menu li a {
     display: block;
-    padding: 6px 25px;
+    padding: 6px 20px;
 }
-
-nav.navbar.bootsnav ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover {}
 
 nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
     left: auto;
@@ -782,8 +781,6 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
 .custom-select-box .dropdown-item {
     padding: 5px 10px;
 }
-
-.btn-cart {}
 
 .cart-list h6 a {
     font-size: 16px;
@@ -1005,14 +1002,16 @@ ul.cart-list>li.total>.btn:hover {
 }
 .choose h2{
     font-size: 2.5rem;
-    font-weight: bold;
+    font-weight: 900;
 }
 .choose p{
-    font-size: 18px;
+    font-size: 16px;
 }
 /*------------------------------------------------------------------ Categories Shop -------------------------------------------------------------------*/
 .categories-shop {
     padding: 70px 0px;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+
 }
 
 .shop-cat-box {
@@ -1025,6 +1024,7 @@ ul.cart-list>li.total>.btn:hover {
     -webkit-transition: all 0.1s ease;
     transition: all 0.1s ease-in-out 0s;
     text-align: center;
+    border-radius: 10px;
     
 }
 
@@ -1035,7 +1035,7 @@ ul.cart-list>li.total>.btn:hover {
     transition: opacity 0.35s, transform 0.35s;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
  
 }
 
@@ -1091,11 +1091,13 @@ ul.cart-list>li.total>.btn:hover {
     font-size: 32px;
     font-weight: 700;
     color: #000000;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
 }
 
 .title-all p {
     color: #999999;
     font-size: 16px;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
 }
 
 .products-box {
@@ -1123,7 +1125,6 @@ ul.cart-list>li.total>.btn:hover {
     background: #000000;
 }
 
-.filter-button-group button {}
 
 .products-single {
     overflow: hidden;
@@ -1144,9 +1145,11 @@ ul.cart-list>li.total>.btn:hover {
     text-align: center;
     display: block;
     height: 200px;
-    width: 250px;
+    width: 260px;
+
  
 }
+
 
 .type-lb {
     position: absolute;
@@ -1241,34 +1244,7 @@ ul.cart-list>li.total>.btn:hover {
     color: #ffffff;
 }
 
-.products-single .mask-icon {
-    background: rgba(1, 1, 1, 0.5);
-    top: -100%;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0;
-    -webkit-transition: all 0.3s ease-out 0.5s;
-    -moz-transition: all 0.3s ease-out 0.5s;
-    -o-transition: all 0.3s ease-out 0.5s;
-    -ms-transition: all 0.3s ease-out 0.5s;
-    transition: all 0.3s ease-out 0.5s;
-}
 
-.products-single:hover .mask-icon {
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
-    opacity: 1;
-    top: 0px;
-    -webkit-transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    -o-transition-delay: 0s;
-    -ms-transition-delay: 0s;
-    transition-delay: 0s;
-    -webkit-animation: bounceY 0.9s linear;
-    -moz-animation: bounceY 0.9s linear;
-    -ms-animation: bounceY 0.9s linear;
-    animation: bounceY 0.9s linear;
-}
 
 @keyframes bounceY {
     0% {
@@ -1547,6 +1523,7 @@ ul.cart-list>li.total>.btn:hover {
 .footer-main {
     padding: 70px 0px;
     background: #010101;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
 }
 
 .footer-main hr {
@@ -1826,6 +1803,7 @@ ul.cart-list>li.total>.btn:hover {
     background-attachment: fixed;
     padding: 70px 0px;
     position: relative;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
 }
 
 .all-title-box::before {
@@ -1887,10 +1865,14 @@ ul.cart-list>li.total>.btn:hover {
     font-style: normal;
     font-weight: 700;
     margin-bottom: 0px;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+
 }
 
 .about-box-main p {
     padding-bottom: 2px;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+
 }
 
 .service-block-inner {
@@ -1960,6 +1942,7 @@ ul.cart-list>li.total>.btn:hover {
 .service-block-inner:hover p {
     color: #ffffff;
     transition: all 0.5s ease 0s;
+    cursor: pointer;
 }
 
 .our-team {
@@ -2841,6 +2824,8 @@ ul.cart-list>li.total>.btn:hover {
 
 .contact-box-main {
     padding: 70px 0px;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+
 }
 
 .contact-info-left {
@@ -3063,8 +3048,6 @@ ul.cart-list>li.total>.btn:hover {
     border: none;
 }
 
-.share-bar {}
-
 .share-bar a {
     background: #b0b435;
     color: #ffffff;
@@ -3074,9 +3057,6 @@ ul.cart-list>li.total>.btn:hover {
     text-align: center;
 }
 
-.share-bar a {}
-
-.featured-products-box {}
 
 .featured-products-box .owl-nav {
     position: absolute;

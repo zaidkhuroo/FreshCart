@@ -17,11 +17,13 @@ urlpatterns = [
     path('', views.login, name='login'), 
     path('logout', views.logout, name='logout'), 
     path('register', views.register, name='register'), 
+    path('order', views.order, name='order'), 
     
     #login and password
     path('changePassword/', ChangePasswordView.as_view(), name='changePassword'),
     path('password-change-done/',TemplateView.as_view(template_name='password_change_done.html'), name='password_change_done'),  # success page
     path('product/<str:product_name>/', views.product_view, name='product'),
+    
     
     # Cart   
     path('cart', views.cart_view, name='cart'), 

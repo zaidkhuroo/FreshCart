@@ -5,17 +5,17 @@
 
 
 <style>
-    
+
 </style>
 <!-- Start All Title Box -->
 <div class="all-title-box">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Cart</h2>
+                <h2>My Basket</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                    <li class="breadcrumb-item active">Cart</li>
+                    <li class="breadcrumb-item"><a href="{%url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item active">My Basket</li>
                 </ul>
             </div>
         </div>
@@ -48,27 +48,31 @@
                                     <td class="thumbnail-img">
                                         <a href="#">
                                             {% if item.product %}
-                                                <img class="img-fluid" src="{% static item.product.img %}" alt="{{ item.product.name }}" />
+                                            <img class="img-fluid" src="{% static item.product.img %}"
+                                                alt="{{ item.product.name }}" />
                                             {% elif item.fruit %}
-                                                <img class="img-fluid" src="{% static item.fruit.img %}" alt="{{ item.fruit.name }}" />
-                                                {% elif item.dairy %}
-                                                <img class="img-fluid" src="{% static item.dairy.img %}" alt="{{ item.dairy.name }}" />
+                                            <img class="img-fluid" src="{% static item.fruit.img %}"
+                                                alt="{{ item.fruit.name }}" />
+                                            {% elif item.dairy %}
+                                            <img class="img-fluid" src="{% static item.dairy.img %}"
+                                                alt="{{ item.dairy.name }}" />
                                             {% else %}
-                                                <img class="img-fluid" src="{% static 'path/to/default/image.jpg' %}" alt="No Image Available" />
+                                            <img class="img-fluid" src="{% static 'path/to/default/image.jpg' %}"
+                                                alt="No Image Available" />
                                             {% endif %}
                                         </a>
                                     </td>
-                                    
+
                                     <td class="name-pr">
                                         <a href="#">
                                             <!-- Conditional display for product or fruit names -->
                                             {% if item.product %}
                                             {{ item.product.name }}
-                                        {% elif item.fruit %}
+                                            {% elif item.fruit %}
                                             {{ item.fruit.name }}
-                                        {% elif item.dairy %}
+                                            {% elif item.dairy %}
                                             {{ item.dairy.name }}
-                                        {% endif %}
+                                            {% endif %}
                                         </a>
                                     </td>
                                     <td class="price-pr">
@@ -93,7 +97,7 @@
                                 {% empty %}
                                 <tr>
                                     <td colspan="6" class="text-center">
-                                        <p>Your cart is empty!</p>
+                                        <p>Your Basket is empty!</p>
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -102,19 +106,11 @@
                     </div>
                     <div class="row my-5">
                         <div class="col-lg-6 col-sm-6">
-                            <div class="coupon-box">
-                                <div class="input-group input-group-sm">
-                                    <input class="form-control" placeholder="Enter your coupon code"
-                                        aria-label="Coupon code" type="text">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-theme" type="button">Apply Coupon</button>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="col-lg-6 col-sm-6">
                             <div class="update-box">
-                                <input value="Update Cart" type="submit">
+                                <input value="Update Basket" type="submit">
                             </div>
                         </div>
                     </div>
@@ -153,7 +149,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-01.jpg'%}" alt="" />
                 <div class="hov-in">
-                    
+
                 </div>
             </div>
         </div>
@@ -161,7 +157,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-02.jpg'%}" alt="" />
                 <div class="hov-in">
-                   
+
                 </div>
             </div>
         </div>
@@ -169,7 +165,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-03.jpg'%}" alt="" />
                 <div class="hov-in">
-                    
+
                 </div>
             </div>
         </div>
@@ -177,7 +173,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-04.jpg'%}" alt="" />
                 <div class="hov-in">
-                   
+
                 </div>
             </div>
         </div>
@@ -185,7 +181,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-05.jpg'%}" alt="" />
                 <div class="hov-in">
-                   
+
                 </div>
             </div>
         </div>
@@ -193,7 +189,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-06.jpg'%}" alt="" />
                 <div class="hov-in">
-                    
+
                 </div>
             </div>
         </div>
@@ -201,7 +197,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-07.jpg'%}" alt="" />
                 <div class="hov-in">
-                    
+
                 </div>
             </div>
         </div>
@@ -209,7 +205,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-08.jpg'%}" alt="" />
                 <div class="hov-in">
-                    
+
                 </div>
             </div>
         </div>
@@ -217,7 +213,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-09.jpg'%}" alt="" />
                 <div class="hov-in">
-                   
+
                 </div>
             </div>
         </div>
@@ -225,7 +221,7 @@
             <div class="ins-inner-box">
                 <img src="{% static 'images/instagram-img-05.jpg'%}" alt="" />
                 <div class="hov-in">
-                   
+
                 </div>
             </div>
         </div>

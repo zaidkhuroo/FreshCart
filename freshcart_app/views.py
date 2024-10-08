@@ -138,17 +138,35 @@ def cart_view(request):
     }
     return render(request, 'cart.html', context)
 
+@login_required(login_url='login')
+def checkout(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    cart_total = sum(item.total_price for item in cart_items)
 
+    context = {
+        'cart_items': cart_items,
+        'cart_total': cart_total,
+    } 
+    return render(request,'checkout.html', context)
 
 @login_required(login_url='login')
 def update_cart(request):
     if request.method == 'POST':
         for item_id, quantity in request.POST.items():
-            if item_id.isdigit():  # Ensure the item_id is valid
-                cart_item = get_object_or_404(CartItem, id=item_id)
-                cart_item.quantity = quantity
-                cart_item.save()
+            if item_id.isdigit():
+                cart_item = get_object_or_404(CartItem, id=item_id, user=request.user)
+                try:
+                    new_quantity = int(quantity)
+                    if new_quantity > 0:
+                        cart_item.quantity = new_quantity
+                        cart_item.save()
+                    else:
+                        cart_item.delete()  # Optionally remove item if quantity is set to 0
+                except ValueError:
+                    # Handle invalid quantities, e.g., non-numeric input
+                    pass
     return redirect('cart')
+
 
 
 @login_required(login_url='login')
@@ -162,9 +180,7 @@ def remove_from_cart(request, item_id):
 @login_required(login_url='login')
 def about(request): 
     return render(request,'about.html')
-@login_required(login_url='login')
-def checkout(request): 
-    return render(request,'checkout.html')
+
 
 @login_required(login_url='login')
 def contact(request):
@@ -201,6 +217,11 @@ def wishlist(request):
 @login_required(login_url='login')
 def cart(request): 
     return render(request,'cart.html')
+def product(request):
+    return render('product.html')
+def order(request):
+    return render(request,'order_place.html')
+    
 
 
 
@@ -240,7 +261,7 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     
     
 
-# CART START
+# WISHLIST START
 
 @login_required(login_url='login')
 def add_to_wishlist(request, product_name):
@@ -310,7 +331,7 @@ def remove_from_wishlist(request, item_id):
     return redirect('wishlist')
 #wishlist End
 
-    
+
 
 
 
