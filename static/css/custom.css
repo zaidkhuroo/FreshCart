@@ -166,4 +166,17 @@ form {
 
 .checkmark {
   font-size: 150px;
-
+}
+.category{
+  color: rgb(220, 217, 45);
+}
+.footer-copyright{
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+}
+.message-text{
+  color: rgb(24, 24, 24);
+  font-weight: 600;
+  padding: 9px;
+  margin: 5px;
+}

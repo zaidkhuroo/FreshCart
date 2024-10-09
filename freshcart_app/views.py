@@ -10,9 +10,10 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordChangeView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 # Create your views here.
@@ -122,8 +123,9 @@ def add_to_cart(request, product_name):
     # Save the cart item
     cart_item.save()
 
-    messages.success(request, f'{product_name} added to your cart.')
-    return redirect('cart')
+    messages.success(request, 'Item added to Basket')
+    return redirect(reverse('product', kwargs={'product_name': product_name}))
+
 
 
 
@@ -160,11 +162,13 @@ def update_cart(request):
                     if new_quantity > 0:
                         cart_item.quantity = new_quantity
                         cart_item.save()
+                          
                     else:
-                        cart_item.delete()  # Optionally remove item if quantity is set to 0
+                        cart_item.delete()  # Optionally remove item if quantity is set to 0                       
                 except ValueError:
                     # Handle invalid quantities, e.g., non-numeric input
                     pass
+    messages.success(request, 'Basket Updated')            
     return redirect('cart')
 
 
@@ -173,6 +177,7 @@ def update_cart(request):
 def remove_from_cart(request, item_id):
     cart_item = get_object_or_404(CartItem, id=item_id, user=request.user)
     cart_item.delete()
+    messages.success(request, 'Item removed')
     return redirect('cart')
 
 
@@ -245,6 +250,7 @@ def register(request):
         form =CreateUser(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Account Created')
             return redirect('login')
     context={'form': form}
     return render(request,'register.html', context=context)            
@@ -257,7 +263,7 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'change_password.html'  # Create this template for the change password page
     form_class = PasswordChangeForm
     success_url = reverse_lazy('password_change_done')  # Redirect after successful password change
-    success_message = "Your password was successfully updated!"
+   
     
     
 
@@ -299,8 +305,8 @@ def add_to_wishlist(request, product_name):
     wishlist_item.quantity = quantity  # Set quantity if the item is newly added
     wishlist_item.save()
 
-    messages.success(request, f'{product_name} added to your wishlist.')
-    return redirect('wishlist')
+    messages.success(request, 'Item added to Wishlist') 
+    return redirect(reverse('product', kwargs={'product_name': product_name}))
 
 
 
@@ -328,6 +334,7 @@ def update_wishlist(request):
 def remove_from_wishlist(request, item_id):
     wishlist_item = get_object_or_404(WishlistItem, id=item_id, user=request.user)
     wishlist_item.delete()
+    messages.success(request, 'Item removed')
     return redirect('wishlist')
 #wishlist End
 

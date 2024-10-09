@@ -29,9 +29,17 @@
 </head>
 
 <body>
-
+   
     {% include 'navbar.html'%}
+    <div class="container" style="z-index: 1000; position: relative;">
+        
+        {%for message in messages%}
 
+        <div id="message" class="alert alert alert-success float-right text-center message-text" role="alert">
+            <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{message}}</div>
+
+        {%endfor%}
+    </div>
 
     {%block content%}
 
@@ -40,8 +48,17 @@
      <!-- Footer Section -->
     {% include 'footer.html'%}
 
-
-
+<script>
+    var message_timeout=document.getElementById('message');
+    setTimeout(function()
+    {
+    
+    
+    message_timeout.style.display= 'none';
+    
+    },2000);
+    
+</script>
     
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

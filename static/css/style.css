@@ -1780,7 +1780,7 @@ ul.cart-list>li.total>.btn:hover {
 .footer-copyright p {
     text-align: center;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .footer-copyright p a {
@@ -2432,6 +2432,7 @@ ul.cart-list>li.total>.btn:hover {
 
 .cart-box-main {
     padding: 70px 0px;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
 }
 
 .table-main table thead {
