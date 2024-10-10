@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wu-ju533ryq3miz*8cc!d%jhht^b$@1!w)s62w92mylq3#0hk+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -77,24 +77,24 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'freshcart',
-        'USER': 'zaidkhuroo',
-        'PASSWORD': 'zaid8491',
-        'HOST': 'localhost',
-  # Change to your database host if needed
-        'PORT': '5432',  # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'freshcart',
+#         'USER': 'zaidkhuroo',
+#         'PASSWORD': 'zaid8491',
+#         'HOST': 'localhost',
+#   # Change to your database host if needed
+#         'PORT': '5432',  # Default PostgreSQL port
+#     }
+# }
 
 
 # Password validation
@@ -132,9 +132,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static'),
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Adjust path based on your structure
 ]
+
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 # Default primary key field type
