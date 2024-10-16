@@ -35,7 +35,7 @@
         
         {%for message in messages%}
 
-        <div id="message" class="alert alert alert-success float-right text-center message-text" role="alert">
+        <div id="messager" class="alert alert alert-success float-right text-center message-text" role="alert">
             <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{message}}</div>
 
         {%endfor%}
@@ -49,7 +49,7 @@
     {% include 'footer.html'%}
 
 <script>
-    var message_timeout=document.getElementById('message');
+    var message_timeout=document.getElementById('messager');
     setTimeout(function()
     {
     
