@@ -9,9 +9,6 @@
 
 body {
   background: url(https://static.vecteezy.com/system/resources/previews/034/494/532/non_2x/flat-lay-vegetables-on-white-background-food-and-diet-concept-ai-generated-free-photo.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -22,12 +19,11 @@ body {
   color: #000000;
 }
 
-
 .container {
-  width: 600px;
+  width: 100%;
+  max-width: 600px; /* Limits the maximum width for larger screens */
   border-radius: 8px;
   padding: 30px;
-  /* text-align: center; */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -118,7 +114,7 @@ button {
   font-size: 16px;
   border: 2px solid transparent;
   transition: 0.3s ease;
-  width: 300px;
+  width: 80%; /* Adjust width to be responsive */
   margin-left: auto;
   margin-right: auto;
 }
@@ -130,11 +126,9 @@ button:hover {
 }
 
 .create {
-  margin-top: 30px;
-  color: #737373;
-  margin-left: 8rem;
-  position: absolute;
   margin-top: 10px;
+  color: #737373;
+  text-align: center;
 }
 
 .create a {
@@ -144,7 +138,41 @@ button:hover {
 }
 
 .create a:hover {
-
   text-decoration: none;
   color: #6df660;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 90%; /* Adjust for tablet screens */
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem; /* Slightly smaller heading for tablets */
+  }
+
+  button {
+    width: 100%; /* Full width button for tablet screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%; /* Full width for mobile */
+   
+  }
+
+  h2 {
+    font-size: 1.6rem; /* Smaller heading for mobile */
+  }
+
+  .input-field input {
+    font-size: 14px; /* Adjust input field font size for mobile */
+  }
+
+  button {
+    width: 100%; /* Full width button for mobile */
+  }
 }
