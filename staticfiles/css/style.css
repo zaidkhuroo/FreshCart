@@ -261,7 +261,7 @@ p {
     border: none;
     padding: 0px;
     border-radius: 0px;
-    
+
 }
 
 .right-phone-box {
@@ -996,17 +996,21 @@ ul.cart-list>li.total>.btn:hover {
     text-transform: uppercase;
     padding: 10px 20px;
 }
-.choose{
+
+.choose {
     text-align: center;
     margin: 10px;
 }
-.choose h2{
+
+.choose h2 {
     font-size: 2.5rem;
     font-weight: 900;
 }
-.choose p{
+
+.choose p {
     font-size: 16px;
 }
+
 /*------------------------------------------------------------------ Categories Shop -------------------------------------------------------------------*/
 .categories-shop {
     padding: 70px 0px;
@@ -1025,18 +1029,18 @@ ul.cart-list>li.total>.btn:hover {
     transition: all 0.1s ease-in-out 0s;
     text-align: center;
     border-radius: 10px;
-    
+
 }
 
 .shop-cat-box img {
-    width:100%;
+    width: 100%;
     opacity: 0.9;
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
- 
+
 }
 
 .shop-cat-box:hover img {
@@ -1136,8 +1140,8 @@ ul.cart-list>li.total>.btn:hover {
 .products-single .box-img-hover {
     overflow: hidden;
     position: relative;
-    
-   
+
+
 }
 
 .box-img-hover img {
@@ -1147,7 +1151,7 @@ ul.cart-list>li.total>.btn:hover {
     height: 200px;
     width: 260px;
 
- 
+
 }
 
 
@@ -1165,7 +1169,7 @@ ul.cart-list>li.total>.btn:hover {
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
-    
+
 }
 
 .type-lb .new {
@@ -1849,7 +1853,7 @@ ul.cart-list>li.total>.btn:hover {
 }
 
 .about-box-main {
-    padding: 70px 0px;
+    padding: 70px 10px;
 }
 
 .noo-sh-title {
@@ -2050,13 +2054,16 @@ ul.cart-list>li.total>.btn:hover {
     font-size: 1.2rem;
     margin: 0px;
 }
-.hello{
+
+.hello {
     font-weight: bold;
     font-size: 20px;
 }
-.freshcart-about{
+
+.freshcart-about {
     font-size: 1.1rem;
 }
+
 .hover-team:hover .social {
     opacity: 1;
 }
@@ -3054,7 +3061,7 @@ ul.cart-list>li.total>.btn:hover {
     color: #ffffff;
     padding: 5px 10px;
     display: inline-block;
-    width: 34px;
+    width: 35px;
     text-align: center;
 }
 
@@ -3101,4 +3108,11 @@ ul.cart-list>li.total>.btn:hover {
     font-weight: 700;
     padding: 12px 25px;
     border: none;
+}
+
+
+@media (max-width: 680px) {
+    .slides-navigation {
+        display: none;
+    }
 }

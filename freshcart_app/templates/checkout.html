@@ -43,12 +43,14 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="username">Contact Number*</label>
+                                <label for="contact-number">Contact Number*</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="username" placeholder="" required pattern="[0-9]+">
-                                    <div class="invalid-feedback" style="width: 100%;"> Your Number is required. </div>
+                                    <input type="tel" class="form-control" id="contact-number" placeholder="" required pattern="\d{10}" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
+                                    <div class="invalid-feedback" style="width: 100%;">Your Number must be exactly 10 digits.</div>
                                 </div>
                             </div>
+                            
+                                                      
                             <div class="mb-3">
                                 <label for="email">Email Address *</label>
                                 <input type="email" class="form-control" id="email" placeholder="">
@@ -64,7 +66,7 @@
                                
                                 <div class="col-md-3 mb-3">
                                     <label for="zip">Pin Code *</label>
-                                    <input type="text" class="form-control" id="zip" placeholder="" required>
+                                    <input type="tel" class="form-control" id="zip" placeholder="" required pattern="\d{6}" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);">
                                     <div class="invalid-feedback"> Zip code required. </div>
                                 </div>
                             </div>

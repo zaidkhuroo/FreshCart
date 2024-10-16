@@ -58,7 +58,7 @@
                     <form method="POST" action="{% url 'add_to_cart' product.name %}">
                         {% csrf_token %}
                         <input type="number" id="quantity" name="quantity" min="1" value="1" class="c-input-text qty text" 
-                        placeholder="Quantity" style="width: 50px; border-radius: 5px; border: 1px solid #ccc; 
+                        placeholder="Quantity" style="width: 49px; border-radius: 5px; border: 1px solid #ccc; 
                         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); font-size: 16px; padding-bottom:5px; font-weight:bold; text-align:center">
                         
                         <button type="submit" class="btn btn-danger btn-md pl-3 pr-3 fw-bolder">Add to Basket</button>
