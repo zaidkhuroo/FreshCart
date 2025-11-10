@@ -57,9 +57,8 @@ h4,
 h5,
 h6 {
     letter-spacing: 0;
-    font-weight: normal;
     position: relative;
-    padding: 0 0 10px 0;
+    padding: 0 0 10px;
     font-weight: normal;
     line-height: 120% !important;
     color: #1f1f1f;
@@ -144,7 +143,7 @@ a,
 }
 
 blockquote {
-    margin: 20px 0 20px;
+    margin: 20px 0;
     padding: 30px;
 }
 
@@ -401,7 +400,6 @@ nav.navbar.bootsnav ul.nav>li>a {
 
 ul.cart-list>li.total>.btn {
     border-bottom: solid 1px #cfcfcf !important;
-    color: #000000;
     padding: 10px 15px;
     border: none;
     font-weight: 700;
@@ -510,7 +508,7 @@ ul.cart-list>li.total>.btn {
 
     /* Navbar Mobile slide ------*/
     nav.navbar.navbar-mobile ul.nav>li>a {
-        padding: 15px 15px;
+        padding: 15px;
     }
 
     nav.navbar.navbar-mobile ul.nav ul.dropdown-menu>li>a {
@@ -810,7 +808,6 @@ ul.cart-list p .price {
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     background: #b0b435;
     -webkit-transition-property: color;
@@ -862,13 +859,11 @@ ul.cart-list>li.total>.btn:hover {
 
 .main-header.fixed-menu {
     position: fixed;
-    visibility: hidden;
     left: 0px;
     top: 0px;
     width: 100%;
-    padding: 0px 0px;
+    padding: 0px;
     background: #ffffff;
-    z-index: 0;
     transition: all 500ms ease;
     -moz-transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
@@ -1357,7 +1352,7 @@ ul.cart-list>li.total>.btn:hover {
 }
 
 .title-blog {
-    padding: 40px 30px 40px 30px;
+    padding: 40px 30px;
 }
 
 .title-blog h3 {
@@ -1430,7 +1425,6 @@ ul.cart-list>li.total>.btn:hover {
 .instagram-box {
     padding: 70px 0px;
     background: url(../images/ins-bg.jpg) no-repeat center center;
-    background-size: auto auto;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
@@ -1569,8 +1563,6 @@ ul.cart-list>li.total>.btn:hover {
 .newsletter-box input {
     height: 40px;
     border: none;
-    padding: 0 10px;
-    background: transparent;
     border-radius: 0;
     background: #fff;
     padding: 0 20px;
@@ -1982,7 +1974,7 @@ ul.cart-list>li.total>.btn:hover {
     display: block;
     font-size: 20px;
     font-weight: 700;
-    margin: 0 0 7px 0;
+    margin: 0 0 7px;
 }
 
 .our-team .post {
@@ -2170,7 +2162,6 @@ ul.cart-list>li.total>.btn:hover {
     position: absolute;
     top: calc(50% - 12px);
     right: 10px;
-    content: '';
     -webkit-transition: top .2s, -webkit-transform .2s;
     transition: top .2s, -webkit-transform .2s;
     transition: transform .2s, top .2s;
@@ -2725,7 +2716,6 @@ ul.cart-list>li.total>.btn:hover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    content: '';
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
