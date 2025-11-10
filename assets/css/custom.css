@@ -92,7 +92,6 @@ form {
   background: #dd6767;
   color: #d6d6d6;
   font-weight: 600;
-  border: none;
   padding: 12px 20px;
   cursor: pointer;
   border-radius: 3px;
@@ -115,7 +114,6 @@ form {
   background: #dd6767;
   color: #d6d6d6;
   font-weight: 600;
-  border: none;
   cursor: pointer;
   border-radius: 3px;
   font-size: 20px;
@@ -142,7 +140,6 @@ form {
 }
 
 .order-success h1 {
-  font-size: 2.4rem;
   color: #88B04B;
   font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
   font-weight: 900;

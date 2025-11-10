@@ -49,8 +49,6 @@
   border-radius: 0px;
   width: 30px;
   height: 30px;
-  display: -moz-inline-stack;
-  display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
   zoom: 1;
